@@ -235,6 +235,7 @@ app.post('/resetpassword', async (req, res) => {
   }
 });
 
+
 // Route to send OTP via email
 app.po// Route to send OTP via email
 app.post('/sendotp', async (req, res) => {
