@@ -1,0 +1,677 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Tracker</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+ 
+      <a href="https://www.galaxiets.com" class="side-white_logo account tooltip-element" data-tooltip="0">
+        <img src="white_logo.png" alt="">
+      </a>
+ 
+      <div class="side-whitelogo tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <a href="https://www.galaxiets.com">
+            <img src="whitelogo.png" alt="">
+          </a>
+        </div>
+      </div>        
+    </div>
+    <br>
+    <div class="sidebar-links">
+      <ul>
+        <div class="active-tab"></div>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="dashboard.html" data-active="0">
+            <div class="icon">
+              <i class='bx bx-tachometer'></i>
+              <i class='bx bxs-tachometer'></i>
+            </div>
+            <span class="link hide">Dashboard</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="companydata.html" id="clickProfile" class="active" data-active="1">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bx-notepad'></i>
+            </div>
+            <span class="link hide">Company Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="customerdata.html" data-active="2">
+            <div class="icon">
+              <i class='bx bx-message-square-detail'></i>
+              <i class='bx bxs-message-square-detail'></i>
+            </div>
+            <span class="link hide">Customer Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="3">
+          <a href="projectdata.html"  data-active="3">
+            <div class="icon">
+              <i class='bx bx-bar-chart-square'></i>
+              <i class='bx bxs-bar-chart-square'></i>
+            </div>
+            <span class="link hide">Project Data</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">Dashboard</span>
+          <span>Company Data</span>
+          <span>Customer Data</span>
+          <span>Project Data</span>
+        </div>
+      </ul>
+
+      <h4 class="hide">Generator</h4>
+
+      <ul>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="quotation.html"  data-active="4">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bxs-notepad'></i>
+            </div>
+            <span class="link hide">Quotation Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="po.html"  data-active="5">
+            <div class="icon">
+              <i class='bx bxs-folder'></i>
+              <i class='bx bxs-folder'></i>
+            </div>
+            <span class="link hide">Po Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="invoice.html" data-active="6">
+            <div class="icon">
+              <i class='bx bxs-receipt' ></i>
+              <i class='bx bxs-receipt' ></i>
+            </div>
+            <span class="link hide">Invoice Generator</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">quotation Generator</span>
+          <span>Po Generator</span>
+          <span>Invoice Generator</span>
+        </div>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <i class='bx bx-user'></i>
+      </a>
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="adminprofile.jpg" alt="">
+          <div class="admin-info">          
+            <h5>Admin</h5>
+          </div>
+        </div>
+        <a href="close.html" class="log-out">
+          <i class='bx bx-log-out'></i>
+        </a>
+      </div>
+      <div class="tooltip">
+        <span class="show">Tejesh</span>
+        <span>Logout</span>
+      </div>
+    </div>
+  </nav>
+  <main>
+
+    <div class="form-container">
+          <h1>Company Details</h1>
+         <form action="/companyData" method="POST" class="form"> 
+           <div class="container1">
+            <div class="input-box">
+                <label>Customer Address</label>
+                <input type="text" name="CustomerAddress" placeholder="Enter Customer Address" required />
+            </div>
+            <div class="input-box">
+                <label>Branch Address</label>
+                <input type="text" name="BranchAddress" placeholder="Enter Branch Address" required />
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Customer ID</label>
+                    <input type="text" name="CustomerID" placeholder="Enter Customer ID" required />
+                </div>
+                <div class="input-box">
+                    <label>Customer Name</label>
+                    <input type="text" name="CustomerName" placeholder="Enter Customer Name" required />
+                </div>
+                <div class="input-box">
+                    <label>State code</label>
+                    <input type="number" name="Statecode" placeholder="Enter State code" required />
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>GST</label>
+                    <input type="text" name="GST" placeholder="Enter GST" required />
+                </div>
+                <div class="input-box">
+                    <label>Date Validity</label>
+                    <input type="date" name="DateValidity" required />
+                </div>
+                <div class="input-box">
+                    <label>ARN No</label>
+                    <input type="number" name="ARNNo" placeholder="Enter ARN number" required />
+                </div>
+                
+            </div>
+            </div>
+            <br>
+            <div>
+                <button type="button" class="button delete-button" style="vertical-align:middle"><span>Delete</span></button>
+                <button type="button" class="button edit-button" style="vertical-align:middle"><span>Edit</span></button>
+                <button type="submit" class="button save-button" style="vertical-align:middle"><span>Save</span></button>
+            </div>
+        </form>
+    </div>
+    <div class="table-container">
+      
+      <table id="customerDataTable">
+        <thead>
+          <tr>
+            <th>Customer Address</th>
+            <th>Branch Address</th>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>State Code</th>
+            <th>GST</th>
+            <th>Date Validity</th>
+            <th>ARN No</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+    <td></td>
+    <td> </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+     
+      <i class='bx bx-check save-icon' title='Save'></i>
+    </td>
+    
+    </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <br><br>
+  <p class="copyright">
+    &copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+  </p>
+</main>
+  <script src="script.js"></script>
+
+  <script>
+    // Get reference to the save icon
+    const saveIcon = document.querySelector('.save-icon');
+
+    // Add click event listener to the save icon
+    saveIcon.addEventListener('click', function() {
+      // Get reference to the table row
+      const tableRow = saveIcon.closest('tr');
+
+      // Get data from each cell of the table row
+      const customerAddress = tableRow.querySelector('td:nth-child(1)').textContent;
+      const branchAddress = tableRow.querySelector('td:nth-child(2)').textContent;
+      const customerID = tableRow.querySelector('td:nth-child(3)').textContent;
+      const customerName = tableRow.querySelector('td:nth-child(4)').textContent;
+      const stateCode = tableRow.querySelector('td:nth-child(5)').textContent;
+      const GST = tableRow.querySelector('td:nth-child(6)').textContent;
+      const dateValidity = tableRow.querySelector('td:nth-child(7)').textContent;
+      const ARNNo = tableRow.querySelector('td:nth-child(8)').textContent;
+
+      // Populate the form fields with the retrieved data
+      document.querySelector('input[name="CustomerAddress"]').value = customerAddress;
+      document.querySelector('input[name="BranchAddress"]').value = branchAddress;
+      document.querySelector('input[name="CustomerID"]').value = customerID;
+      document.querySelector('input[name="CustomerName"]').value = customerName;
+      document.querySelector('input[name="Statecode"]').value = stateCode;
+      document.querySelector('input[name="GST"]').value = GST;
+      document.querySelector('input[name="DateValidity"]').value = dateValidity;
+      document.querySelector('input[name="ARNNo"]').value = ARNNo;
+    });
+  </script>
+
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Tracker</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="payments.css">
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+ 
+      <a href="https://www.galaxiets.com" class="side-white_logo account tooltip-element" data-tooltip="0">
+        <img src="white_logo.png" alt="">
+      </a>
+ 
+        <div class="side-whitelogo tooltip-element" data-tooltip="1">
+          <div class="admin-profile hide">
+            <a href="https://www.galaxiets.com">
+              <img src="whitelogo.png" alt="">
+            </a>
+          </div>
+        </div>        
+    </div>
+  <br>
+  
+    <div class="sidebar-links">
+      <ul>
+        <div class="active-tab"></div>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="dashboard.html"  data-active="0">
+            <div class="icon">
+              <i class='bx bx-tachometer'></i>
+              <i class='bx bxs-tachometer'></i>
+            </div>
+            <span class="link hide">Dashboard</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="companydata.html" id="clickProfile" class="active" data-active="0">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bx-notepad'></i>
+            </div>
+            <span class="link hide">Company Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="customerdata.html"  data-active="2">
+            <div class="icon">
+              <i class='bx bx-message-square-detail'></i>
+              <i class='bx bxs-message-square-detail'></i>
+            </div>
+            <span class="link hide">Customer Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="3">
+          <a href="projectdata.html" data-active="0">
+            <div class="icon">
+              <i class='bx bx-bar-chart-square'></i>
+              <i class='bx bxs-bar-chart-square'></i>
+            </div>
+            <span class="link hide">Project Data</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">Dashboard</span>
+          <span>Company Data</span>
+          <span>Customer Data</span>
+          <span>Project Data</span>
+        </div>
+      </ul>
+
+      <h4 class="hide">Generator</h4>
+
+      <ul>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="quotation.html"  data-active="4">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bxs-notepad'></i>
+            </div>
+            <span class="link hide">Quotation Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="po.html"  data-active="5">
+            <div class="icon">
+              <i class='bx bxs-folder'></i>
+              <i class='bx bxs-folder'></i>
+            </div>
+            <span class="link hide">Po Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="invoice.html"  data-active="6">
+            <div class="icon">
+              <i class='bx bxs-receipt' ></i>
+              <i class='bx bxs-receipt' ></i>
+            </div>
+            <span class="link hide">Invoice Generator</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">quotation Generator</span>
+          <span>Po Generator</span>
+          <span>Invoice Generator</span>
+        </div>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <i class='bx bx-user'></i>
+      </a>
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="adminprofile.jpg" alt="">
+          <div class="admin-info">
+        
+            <h5>Admin</h5>
+          </div>
+        </div>
+        <a href="close.html" class="log-out">
+          <i class='bx bx-log-out'></i>
+        </a>
+      </div>
+      <div class="tooltip">
+        <span class="show">Tejesh</span>
+        <span>Logout</span>
+      </div>
+    </div>
+  </nav>
+  <main>
+     <div class="form-container">
+       <h1>Company Details</h1>
+       <form action="/companyData" method="POST" id="companyForm" class="form">
+         <div class="container1">
+           <div class="input-box">
+             <label>Customer Address</label>
+             <input type="text" name="CustomerAddress" placeholder="Enter Customer Address" required />
+           </div>
+           <div class="input-box">
+             <label>Branch Address</label>
+             <input type="text" name="BranchAddress" placeholder="Enter Branch Address" required />
+           </div>
+           <div class="column">
+             <div class="input-box">
+               <label>Customer ID</label>
+               <input type="text" name="CustomerID" placeholder="Enter Customer ID" required />
+             </div>
+             <div class="input-box">
+               <label>Customer Name</label>
+               <input type="text" name="CustomerName" placeholder="Enter Customer Name" required />
+             </div>
+             <div class="input-box">
+               <label>State code</label>
+               <input type="number" name="Statecode" placeholder="Enter State code" required />
+             </div>
+           </div>
+           <div class="column">
+             <div class="input-box">
+               <label>GST</label>
+               <input type="text" name="GST" placeholder="Enter GST" required />
+             </div>
+             <div class="input-box">
+               <label>Date Validity</label>
+               <input type="date" name="DateValidity" required />
+             </div>
+             <div class="input-box">
+               <label>ARN No</label>
+               <input type="number" name="ARNNo" placeholder="Enter ARN number" required />
+             </div>
+           </div>
+         </div>
+         <br>
+         <div>
+          <!-- <button onclick="addCompanyData()">Add</button><br> -->
+          <button type="button" class="button delete-button" style="vertical-align:middle"><span>Delete</span></button>
+                <!-- <button type="button" class="button edit-button" style="vertical-align:middle"><span>Edit</span></button> -->
+                <button type="submit"  class="button save-button" style="vertical-align:middle" onclick="addCompanyData()"><span>Save</span></button>
+         </div>
+       </form>
+     </div>
+     <div class="table-container">
+       <table id="customerDataTable">
+         <thead>
+           <tr>
+             <th>Customer Address</th>
+             <th>Branch Address</th>
+             <th>Customer ID</th>
+             <th>Customer Name</th>
+             <th>State Code</th>
+             <th>GST</th>
+             <th>Date Validity</th>
+             <th>ARN No</th>
+             <th>Action</th>
+           </tr>
+         </thead>
+         <tbody>
+           <!-- Table Body Content -->
+         </tbody>
+       </table>
+</div>
+
+      </section>
+      <p class="copyright">
+        &copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+      </p>
+      </main>
+     </div>
+   </main>
+
+   <script src="script.js"></script>
+   
+   <script>
+   
+      document.addEventListener("DOMContentLoaded", function () {
+          loadStoredCompanyData();
+      });
+  
+      function addCompanyData() {
+
+   
+        let formData = new FormData(document.getElementById("companyForm"));
+        let jsonData = {};
+        formData.forEach((value, key) => {
+            jsonData[key] = value;
+        });
+
+        fetch('/companyData', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(jsonData)
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log('Data successfully saved:', data);
+          // You can update the UI or do something else after successful submission
+      })
+      .catch(error => console.error('Error:', error));
+
+          let customerAddress = document.getElementsByName("CustomerAddress")[0].value;
+          let branchAddress = document.getElementsByName("BranchAddress")[0].value;
+          let customerID = document.getElementsByName("CustomerID")[0].value;
+          let customerName = document.getElementsByName("CustomerName")[0].value;
+          let stateCode = document.getElementsByName("Statecode")[0].value;
+          let gst = document.getElementsByName("GST")[0].value;
+          let dateValidity = document.getElementsByName("DateValidity")[0].value;
+          let arnNo = document.getElementsByName("ARNNo")[0].value;
+  
+          let table = document.getElementById("customerDataTable");
+          let newRow = table.insertRow(table.rows.length);
+  
+          let cell1 = newRow.insertCell(0);
+          let cell2 = newRow.insertCell(1);
+          let cell3 = newRow.insertCell(2);
+          let cell4 = newRow.insertCell(3);
+          let cell5 = newRow.insertCell(4);
+          let cell6 = newRow.insertCell(5);
+          let cell7 = newRow.insertCell(6);
+          let cell8 = newRow.insertCell(7);
+          let cell9 = newRow.insertCell(8);
+  
+          cell1.innerHTML = customerAddress;
+          cell2.innerHTML = branchAddress;
+          cell3.innerHTML = customerID;
+          cell4.innerHTML = customerName;
+          cell5.innerHTML = stateCode;
+          cell6.innerHTML = gst;
+          cell7.innerHTML = dateValidity;
+          cell8.innerHTML = arnNo;
+          cell9.innerHTML = '<button onclick="deleteData(this)">Delete</button>';
+  
+          clearCustomerInputs();
+  
+          let newCompanyData = {
+              customerAddress: customerAddress,
+              branchAddress: branchAddress,
+              customerID: customerID,
+              customerName: customerName,
+              stateCode: stateCode,
+              gst: gst,
+              dateValidity: dateValidity,
+              arnNo: arnNo,
+          };
+  
+          let existingCompanyData = JSON.parse(localStorage.getItem('companyData')) || [];
+          existingCompanyData.push(newCompanyData);
+          localStorage.setItem('companyData', JSON.stringify(existingCompanyData));
+
+               // Generate a unique ID for the new row
+        let companyId = generateUniqueId(); // Call a function to generate a unique ID
+
+        // Add the generated ID to the row as a data attribute
+        newRow.setAttribute('data-id', companyId);
+
+        // Function to generate a unique ID
+        function generateUniqueId() {
+          // Generate a timestamp-based ID
+          return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+      }
+
+
+      }
+  
+      function loadStoredCompanyData() {
+          let storedCompanyData = JSON.parse(localStorage.getItem('companyData')) || [];
+          let table = document.getElementById("customerDataTable");
+
+          // Clear table body content before loading stored data
+        //table.getElementsByTagName('tbody')[0].innerHTML = '';
+  
+          storedCompanyData.forEach(function (data) {
+              let newRow = table.insertRow(table.rows.length);
+              newRow.innerHTML = `
+                  <td>${data.customerAddress}</td>
+                  <td>${data.branchAddress}</td>
+                  <td>${data.customerID}</td>
+                  <td>${data.customerName}</td>
+                  <td>${data.stateCode}</td>
+                  <td>${data.gst}</td>
+                  <td>${data.dateValidity}</td>
+                  <td>${data.arnNo}</td>
+                  <td>
+                    <button onclick="deleteData(this)">Delete</button>
+                  </td>
+              `;
+          });
+      }
+  
+      function clearCustomerInputs() {
+          document.getElementsByName("CustomerAddress")[0].value = "";
+          document.getElementsByName("BranchAddress")[0].value = "";
+          document.getElementsByName("CustomerID")[0].value = "";
+          document.getElementsByName("CustomerName")[0].value = "";
+          document.getElementsByName("Statecode")[0].value = "";
+          document.getElementsByName("GST")[0].value = "";
+          document.getElementsByName("DateValidity")[0].value = "";
+          document.getElementsByName("ARNNo")[0].value = "";
+      }
+
+  
+
+
+
+    // Function to delete data
+    function deleteData(button) {
+        let row = button.parentNode.parentNode;
+        let rowIndex = row.rowIndex - 1; // Adjust for header row
+        let storedData = JSON.parse(localStorage.getItem('companyData')) || [];
+        storedData.splice(rowIndex, 1); // Remove the corresponding data row
+        localStorage.setItem('companyData', JSON.stringify(storedData));
+
+        // Remove the row from the table
+        row.parentNode.removeChild(row);
+
+        // Deleting a company
+async function deleteCompany(companyId) {
+  try {
+      const response = await fetch(`/companyData/${companyId}`, {
+          method: 'DELETE',
+      });
+      
+      if (response.ok) {
+          console.log("Company deleted successfully");
+          // Optionally, you can handle UI updates here
+      } else {
+          console.error("Failed to delete company");
+          // Handle error response
+      }
+  } catch (error) {
+      console.error("Error deleting company:", error);
+      // Handle network errors
+  }
+}
+
+        
+deleteCompany(companyId);
+        
+    }
+  
+    
+    
+
+
+
+</script>
+  
+ 
+ </body>
+ 
+ </html>
+ 

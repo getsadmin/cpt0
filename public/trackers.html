@@ -1,0 +1,310 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+    <title>Tracker</title> 
+    <style> 
+        button { 
+            width: 35%;
+            margin: 10px; 
+            padding: 8px 16px; 
+            background-color: #f4511e; 
+            color: #fff; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer;
+        } 
+        
+        button:hover { 
+            background-color: #45a049; 
+        }  
+        
+        body { 
+            margin: 4rem; 
+        } 
+
+        table { 
+            border-collapse: collapse; 
+            margin-bottom: 20px; 
+            width: 100%; 
+        } 
+
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 8px; 
+            text-align: left; 
+        } 
+
+        th { 
+            background-color: #820000; 
+            color: #fff; 
+        }
+
+        /* Style for container */
+.search-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+  
+  /* Style for labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333; /* Example color */
+  }
+  
+  /* Style for text input fields */
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for text input fields when focused */
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff; /* Example color */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Example shadow */
+  }
+  
+        </style> 
+</head> 
+
+<body> 
+    <h1 style="color: #820000;">Tracker</h1> 
+    
+<!-- Search input fields -->
+<div class="search-container">
+    <div>
+        <label for="projectId">Search by Project ID:</label>
+        <input type="text" id="projectId" onkeyup="searchProjectID()" placeholder="Enter Project ID">
+    </div>
+
+    <div>
+        <label for="customerId">Search by Customer ID:</label>
+        <input type="text" id="customerId" onkeyup="searchCustomerID()" placeholder="Enter Customer ID">
+    </div>
+
+    <div>
+        <label for="poNumber">Search by PO Number:</label>
+        <input type="text" id="poNumber" onkeyup="searchPONumber()" placeholder="Enter PO Number">
+    </div>
+<!-- 
+    <div>
+        <label for="invoiceNumber">Search by Invoice Number:</label>
+        <input type="text" id="invoiceNumber" onkeyup="searchInvoiceNumber()" placeholder="Enter Invoice Number">
+    </div>
+
+    <div>
+        <label for="quoteRef">Search by Quote Ref:</label>
+        <input type="text" id="quoteRef" onkeyup="searchQuoteRef()" placeholder="Enter Quote Ref">
+    </div> -->
+
+    <div>
+        <label for="projectTitle">Search by Project Title:</label>
+        <input type="text" id="projectTitle" onkeyup="searchProjectTitle()" placeholder="Enter Project Title">
+    </div>
+    <div>
+        <button onclick="window.location.href='payments.html'">Back to Payments</button>
+        <button onclick="window.location.href='close.html'">Next Page</button> 
+    </div>
+</div>
+
+<br>
+    <table id="trackerTable"> 
+        <tr> 
+            <th>Serial No.</th> 
+            <th>Project ID</th> 
+            <th>Customer ID</th> 
+            <th>PO Number</th> 
+            <!-- <th>Invoice Number</th> 
+            <th>Quote Ref</th>  -->
+            <th>Project Title</th> 
+            <th>Company Data</th> 
+            <th>Customer Data</th> 
+            <th>Project Data</th> 
+            <th>PO Status</th> 
+            <th>Quote Status</th> 
+            <th>Invoice Status</th>
+            <th>Invoice Submitted</th> 
+            <th>Payment Status</th> 
+        </tr> 
+    </table> 
+</div>
+</section>
+<p class="copyright">
+&copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+</p>
+    <script> 
+        // Retrieve data from User Data Management page
+        let userData = JSON.parse(localStorage.getItem('userData')) || [];
+
+        // Get the table reference 
+        let table = document.getElementById("trackerTable"); 
+
+        // Populate the table with data
+        userData.forEach((data, index) => {
+            let newRow = table.insertRow(index + 1); // Adding 1 to index to skip header row
+            
+            // Insert cells in the new row 
+            //let cell1 = newRow.insertCell(0); 
+            //let cell2 = newRow.insertCell(1); 
+            //let cell3 = newRow.insertCell(2); 
+            //let cell4 = newRow.insertCell(3); 
+            //let cell5 = newRow.insertCell(4); 
+            //let cell6 = newRow.insertCell(5); 
+            //let cell7 = newRow.insertCell(6); 
+            //let cell8 = newRow.insertCell(7); 
+            //let cell9 = newRow.insertCell(8); 
+            //let cell10 = newRow.insertCell(9); 
+            //let cell11 = newRow.insertCell(10); 
+            //let cell12 = newRow.insertCell(11); 
+            //let cell13 = newRow.insertCell(12); 
+            //let cell14 = newRow.insertCell(13);
+            //let cell15 = newRow.insertCell(14); 
+            let cell1 = newRow.insertCell(0); 
+            let cell2 = newRow.insertCell(1); 
+            let cell3 = newRow.insertCell(2); 
+            let cell4 = newRow.insertCell(3); 
+            let cell5 = newRow.insertCell(4); 
+            let cell6 = newRow.insertCell(5); 
+            let cell7 = newRow.insertCell(6); 
+            let cell8 = newRow.insertCell(7); 
+            let cell9 = newRow.insertCell(8); 
+            let cell10 = newRow.insertCell(9); 
+            let cell11 = newRow.insertCell(10); 
+            let cell12 = newRow.insertCell(11); 
+            let cell13 = newRow.insertCell(12);
+            
+            // Populate cells with data 
+            cell1.innerHTML = index + 1; // Serial No.
+            cell2.innerHTML = data.projectId; // Project ID
+            cell3.innerHTML = data.customerId; // Customer ID
+            cell4.innerHTML = data.poNumber; // PO Number
+            //cell5.innerHTML = data.invoiceNumber; // Invoice Number
+            //cell6.innerHTML = data.quoteRef; // Quote Ref
+            cell5.innerHTML = data.projectTitle; // Project Title
+            
+            
+            //cell12.innerHTML = (data.invoiceSubmitted === "Yes") ? "&#10004;" : "&#10008;"; // Update Quote Status cell
+            //cell13.innerHTML = (data.invoiceSubmitted === "Yes") ? "&#10004;" : "&#10008;"; // Update Invoice Status cell
+            //cell14.innerHTML = data.invoiceSubmitted; // Invoice Submitted
+            //cell15.innerHTML = data.paymentStatus; // Payment Status
+
+            cell10.innerHTML = (data.invoiceSubmitted === "Yes") ? "&#10004;" : "&#10008;"; // Update Quote Status cell
+            cell11.innerHTML = (data.invoiceSubmitted === "Yes") ? "&#10004;" : "&#10008;"; // Update Invoice Status cell
+            cell12.innerHTML = data.invoiceSubmitted; // Invoice Submitted
+            cell13.innerHTML = data.paymentStatus; // Payment Status
+
+            
+
+            // Check if Customer ID has data
+            //if (data.customerId) {
+            //    cell8.innerHTML = '&#10004;'; // Tick symbol for Company Data
+            //    cell9.innerHTML = '&#10004;'; // Tick symbol for Customer Data
+            //} else {
+            //    cell8.innerHTML = '&#10008;'; // Cross symbol for Company Data
+            //    cell9.innerHTML = '&#10008;'; // Cross symbol for Customer Data
+            //}
+
+             // Check if Customer ID has data
+             if (data.customerId) {
+                cell6.innerHTML = '&#10004;'; // Tick symbol for Company Data
+            } else {
+                cell6.innerHTML = '&#10008;'; // Cross symbol for Company Data
+            }
+
+            // Check if Customer ID has data
+            if (data.customerId) {
+                cell7.innerHTML = '&#10004;'; // Tick symbol for Customer Data
+            } else {
+                cell7.innerHTML = '&#10008;'; // Cross symbol for Customer Data
+            }
+
+            // Check if Project ID and Project Title have data
+            if (data.projectId && data.projectTitle) {
+                cell8.innerHTML = '&#10004;'; // Tick symbol for Project Data
+            } else {
+                cell8.innerHTML = '&#10008;'; // Cross symbol for Project Data
+            }
+
+            // Check if PO Number has data
+            if (data.poNumber) {
+                cell9.innerHTML = '&#10004;'; // Tick symbol for PO Status
+            } else {
+                cell9.innerHTML = '&#10008;'; // Cross symbol for PO Status
+            }
+
+            // Check if Invoice No. has data
+            //if (data.invoiceNumber) {
+            //    cell13.innerHTML = '&#10004;'; // Tick symbol for Invoice Status
+            //} else {
+            //    cell13.innerHTML = '&#10008;'; // Cross symbol for Invoice Status
+            //}
+
+            // Check if Quote Ref has data
+            //if (data.quoteRef) {
+            //    cell12.innerHTML = '&#10004;'; // Tick symbol for Quote Status
+            //} else {
+            //    cell12.innerHTML = '&#10008;'; // Cross symbol for Quote Status
+            //}
+        });
+
+
+        // Function to filter table rows by Project ID
+        function searchProjectID() {
+            searchTable(1, "projectId");
+        }
+
+        // Function to filter table rows by Customer ID
+        function searchCustomerID() {
+            searchTable(2, "customerId");
+        }
+
+        // Function to filter table rows by PO Number
+        function searchPONumber() {
+            searchTable(3, "poNumber");
+        }
+
+        // Function to filter table rows by Invoice Number
+        //function searchInvoiceNumber() {
+        //    searchTable(4, "invoiceNumber");
+        //}
+
+        // Function to filter table rows by Quote Ref
+        //function searchQuoteRef() {
+        //    searchTable(5, "quoteRef");
+        //}
+
+        // Function to filter table rows by Project Title
+        function searchProjectTitle() {
+            searchTable(4, "projectTitle");
+        }
+
+        // Generic function to search and filter table rows
+        function searchTable(columnIndex, inputId) {
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById(inputId);
+            filter = input.value.toUpperCase();
+            table = document.getElementById("trackerTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[columnIndex];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script> 
+</body> 
+
+</html>

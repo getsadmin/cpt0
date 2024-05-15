@@ -1,0 +1,398 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+    <title> 
+        Payments
+    </title> 
+    <link rel="stylesheet" href="payments.css">
+</head> 
+
+<body> 
+    <h1 style="color: #820000;"> 
+        Payments 
+    </h1> 
+
+    <div id="formContainer">
+        <div class="row">
+            <label for="projectIdInput">Project Id:</label>
+            <input type="text" id="projectIdInput" placeholder="Enter Project Id">
+        </div>
+        <div class="row">
+            <label for="customerIdInput">Customer ID:</label>
+            <input type="email" id="customerIdInput" placeholder="Enter Customer ID">
+        </div>
+        <div class="row">
+            <label for="poNumberInput">PO number:</label>
+            <input type="text" id="poNumberInput" placeholder="Enter PO number">
+        </div>
+        <div class="row">
+            <label for="projectTitleInput">Project Title:</label>
+            <input id="projectTitleInput" type="text" placeholder="Enter Project Title">
+        </div>
+        <!-- <div class="row">
+            <label for="invoiceNumberInput">Invoice Number:</label>
+            <input id="invoiceNumberInput" type="text" placeholder="Enter Invoice Number">
+        </div>
+        <div class="row">
+            <label for="quoteRefInput">Quote Ref:</label>
+            <input type="text" id="quoteRefInput" placeholder="Enter Quote Ref"> -->
+        <!-- </div> -->
+        <div class="row">
+            <label for="invoiceSubmittedInput">Invoice Submitted to Customer:</label>
+            <select id="invoiceSubmittedInput">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+        </div>
+        <div class="row">
+            <label for="paymentStatusInput">Payment Status:</label>
+            <select id="paymentStatusInput">
+                <option value="Pending">Pending</option>
+                <option value="Received">Received</option>
+            </select>
+        </div>
+        <div class="row"><br>
+            <button onclick="addData()">Add</button><br>
+        </div>
+        <div class="row">
+            <button onclick="window.location.href='invoice.html'">Back to Invoice</button>
+            <button onclick="window.location.href='trackers.html'">Next Page</button>            
+        </div>
+    </div>
+    
+
+    
+    
+    <table id="outputTable"> 
+        <tr> 
+            <th>Project Id</th> 
+            <th>Customer ID</th> 
+            <th>PO number</th> 
+            <th>Project Title</th>
+            <!-- <th>Invoice Number</th> 
+            <th>Quote Ref</th>  -->
+            <th>Invoice Submitted</th> 
+            <th>Payment Status</th> 
+            <th>Action</th> 
+        </tr> 
+    </table> 
+
+
+<!-- Dialog Box -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Edit Data</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <label for="editProjectIdInput">Project Id:</label>
+                <input type="text" id="editProjectIdInput">
+            </div>
+            <div class="grid-item">
+                <label for="editCustomerIdInput">Customer ID:</label>
+                <input type="email" id="editCustomerIdInput">
+            </div>
+            <div class="grid-item">
+                <label for="editPoNumberInput">PO number:</label>
+                <input type="text" id="editPoNumberInput">
+            </div>
+            <div class="grid-item">
+                <label for="editProjectTitleInput">Project Title:</label>
+                <input type="text" id="editProjectTitleInput">
+            </div>
+            <!-- <div class="grid-item">
+                <label for="editInvoiceNumberInput">Invoice Number:</label>
+                <input type="text" id="editInvoiceNumberInput" placeholder="Enter Invoice Number">
+            </div>
+            <div class="grid-item">
+                <label for="editQuoteRefInput">Quote Ref:</label>
+                <input type="text" id="editQuoteRefInput" placeholder="Enter Quote Ref">
+            </div> -->
+            <div class="grid-item">
+                <label for="editInvoiceSubmittedInput">Invoice Submitted to Customer:</label>
+                <select id="editInvoiceSubmittedInput">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="grid-item">
+                <label for="editPaymentStatusInput">Payment Status:</label>
+                <select id="editPaymentStatusInput">
+                    <option value="Received">Received</option>
+                    <option value="Pending">Pending</option>
+                </select>
+            </div>
+            <div class="grid-item">
+                <button onclick="saveEdit()">Save Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<p class="copyright">
+  &copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+</p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Retrieve project ID from localStorage
+            var projectIDs = localStorage.getItem('projectIDs');
+            
+            // Set the value of projectIdInput field
+            if (projectIDs) {
+                document.getElementById('projectIdInput').value = projectIDs;
+            }
+
+            // Retrieve project ID from localStorage
+            var CustomerIDs = localStorage.getItem('CustomerIDs');
+            
+            // Set the value of projectIdInput field
+            if (CustomerIDs) {
+                document.getElementById('customerIdInput').value = CustomerIDs;
+            }
+
+            // Retrieve project ID from localStorage
+            var PO = localStorage.getItem('PO');
+            
+            // Set the value of projectIdInput field
+            if (PO) {
+                document.getElementById('poNumberInput').value = PO;
+            }
+
+            // Retrieve project ID from localStorage
+            var titleone = localStorage.getItem('titleone');
+            
+            // Set the value of projectIdInput field
+            if (titleone) {
+                document.getElementById('projectTitleInput').value = titleone;
+            }
+
+             // Retrieve project ID from localStorage
+             //var INno = localStorage.getItem('INno');
+             //console.log("INno from localStorage:", INno);
+            
+             // Set the value of projectIdInput field
+             //if (INno) {
+             //    document.getElementById('invoiceNumberInput').value = INno;
+             //}
+
+             // Retrieve project ID from localStorage
+            //var quoteReference = localStorage.getItem('quoteReference');
+            //console.log("quoteReference from localStorage:", quoteReference);
+            
+            // Set the value of projectIdInput field
+            //if (quoteReference) {
+            //    document.getElementById('quoteRefInput').value = quoteReference;
+           // }
+
+
+        });
+
+//...<td>${data.invoiceNumber}</td>
+
+//...<td>${data.quoteRef}</td>
+
+        // Function to load stored data from localStorage
+    function loadStoredData() {
+        let storedData = JSON.parse(localStorage.getItem('userData')) || [];
+        let table = document.getElementById("outputTable");
+
+        storedData.forEach(function(data) {
+            let newRow = table.insertRow(table.rows.length);
+            newRow.innerHTML = `
+                <td>${data.projectId}</td>
+                <td>${data.customerId}</td>
+                <td>${data.poNumber}</td>
+                <td>${data.projectTitle}</td>
+                
+                <td>${data.invoiceSubmitted}</td>
+                <td>${data.paymentStatus}</td>
+                <td>
+                    <button onclick="openEditModal(this)">Edit</button>
+                    <button onclick="deleteData(this)">Delete</button>
+                </td>
+            `;
+        });
+    }
+
+
+
+        function addData() { 
+            // Get input values 
+            let projectId = document.getElementById("projectIdInput").value; 
+            let customerId = document.getElementById("customerIdInput").value; 
+            let poNumber = document.getElementById("poNumberInput").value; 
+            let projectTitle = document.getElementById("projectTitleInput").value; 
+
+            //let invoiceNumber = document.getElementById("invoiceNumberInput").value; // New field
+            //let quoteRef = document.getElementById("quoteRefInput").value; // New field
+
+            let invoiceSubmitted = document.getElementById("invoiceSubmittedInput").value; 
+            let paymentStatus = document.getElementById("paymentStatusInput").value; 
+
+               // Check if any required field is empty
+               //if (!projectId || !customerId || !poNumber || !projectTitle || !invoiceNumber || !quoteRef) {
+                //alert("Please fill in all required fields.");
+                //return;
+            //}
+            
+            // Get the table reference 
+            let table = document.getElementById("outputTable"); 
+            
+            // Insert a new row at the end 
+            let newRow = table.insertRow(table.rows.length); 
+
+            // Update the tracker's Invoice Status based on Invoice Submitted value
+            let invoiceStatus = (invoiceSubmitted === "Yes") ? "&#10004;" : "&#10008;";
+            // Update the tracker's Quote Status based on the presence of Quote Ref
+            let quoteStatus = (invoiceSubmitted === "Yes") ? "&#10004;" : "&#10008;";
+            
+            // Insert cells in the new row 
+            let cell1 = newRow.insertCell(0); 
+            let cell2 = newRow.insertCell(1); 
+            let cell3 = newRow.insertCell(2); 
+            let cell4 = newRow.insertCell(3); 
+            //let cell5 = newRow.insertCell(4); 
+            //let cell6 = newRow.insertCell(5); 
+            let cell5 = newRow.insertCell(4); 
+            let cell6 = newRow.insertCell(5); 
+            let cell7 = newRow.insertCell(6); 
+           // let cell7 = newRow.insertCell(6);
+            //let cell8 = newRow.insertCell(7); // New cell for Payment Status
+            //let cell9 = newRow.insertCell(8); // New cell for Action
+            
+            // Populate cells with data
+    cell1.innerHTML = projectId;
+    cell2.innerHTML = customerId;
+    cell3.innerHTML = poNumber;
+    cell4.innerHTML = projectTitle;
+    //cell5.innerHTML = invoiceNumber;
+    //cell6.innerHTML = quoteRef;
+    //cell7.innerHTML = invoiceSubmitted;
+    //cell8.innerHTML = paymentStatus; // Add Payment Status cell
+    //cell9.innerHTML = '<button onclick="openEditModal(this)">Edit</button>' +
+     //   '<button onclick="deleteData(this)">Delete</button>';
+     cell5.innerHTML = invoiceSubmitted;
+     cell6.innerHTML = paymentStatus; // Add Payment Status cell
+     cell7.innerHTML = '<button onclick="openEditModal(this)">Edit</button>' +
+        '<button onclick="deleteData(this)">Delete</button>';
+            
+            // Clear input fields 
+            clearInputs(); 
+
+            // Store the data in local storage
+            let newData = {
+                projectId: projectId,
+        customerId: customerId,
+        poNumber: poNumber,
+        projectTitle: projectTitle,
+        //invoiceNumber: invoiceNumber,
+        //quoteRef: quoteRef,
+        invoiceSubmitted: invoiceSubmitted,
+        paymentStatus: paymentStatus
+            };
+
+            let existingData = JSON.parse(localStorage.getItem('userData')) || [];
+            existingData.push(newData);
+            localStorage.setItem('userData', JSON.stringify(existingData));
+        } 
+         // Call loadStoredData when the page loads
+    window.onload = function() {
+        loadStoredData();
+    };
+
+
+    function openEditModal(button) {
+        let row = button.parentNode.parentNode;
+        let cells = row.cells;
+    
+        // Mark the row as selected for editing
+        row.classList.add("selected");
+    
+        // Prefill input fields with existing data
+        document.getElementById("editProjectIdInput").value = cells[0].innerHTML;
+        document.getElementById("editCustomerIdInput").value = cells[1].innerHTML;
+        document.getElementById("editPoNumberInput").value = cells[2].innerHTML;
+        document.getElementById("editProjectTitleInput").value = cells[3].innerHTML;
+        //document.getElementById("editInvoiceNumberInput").value = cells[4].innerHTML; // Updated ID
+        //document.getElementById("editQuoteRefInput").value = cells[5].innerHTML; // Updated ID
+        document.getElementById("editInvoiceSubmittedInput").value = cells[4].innerHTML;
+        document.getElementById("editPaymentStatusInput").value = cells[5].innerHTML;
+    
+        // Display the dialog box
+        document.getElementById("editModal").style.display = "block";
+    }
+    
+        
+
+        function closeModal() {
+            document.getElementById("editModal").style.display = "none";
+        }
+        
+        
+        function saveEdit() {
+            let row = document.querySelector("#outputTable tr.selected");
+            let cells = row.cells;
+        
+            // Update the cell values with edited data
+            cells[0].innerHTML = document.getElementById("editProjectIdInput").value;
+            cells[1].innerHTML = document.getElementById("editCustomerIdInput").value;
+            cells[2].innerHTML = document.getElementById("editPoNumberInput").value;
+            cells[3].innerHTML = document.getElementById("editProjectTitleInput").value;
+            //cells[4].innerHTML = document.getElementById("editInvoiceNumberInput").value;
+            //cells[5].innerHTML = document.getElementById("editQuoteRefInput").value;
+            //cells[6].innerHTML = document.getElementById("editInvoiceSubmittedInput").value;
+            //cells[7].innerHTML = document.getElementById("editPaymentStatusInput").value;
+            cells[4].innerHTML = document.getElementById("editInvoiceSubmittedInput").value;
+            cells[5].innerHTML = document.getElementById("editPaymentStatusInput").value;
+        
+            // Update the data in localStorage
+            let storedData = JSON.parse(localStorage.getItem('userData')) || [];
+            let rowIndex = row.rowIndex - 1; // Adjust for header row
+            storedData[rowIndex] = {
+                projectId: cells[0].innerHTML,
+                customerId: cells[1].innerHTML,
+                poNumber: cells[2].innerHTML,
+                projectTitle: cells[3].innerHTML,
+                //invoiceNumber: cells[4].innerHTML,
+                //quoteRef: cells[5].innerHTML,
+                //invoiceSubmitted: cells[6].innerHTML,
+                //paymentStatus: cells[7].innerHTML
+                invoiceSubmitted: cells[4].innerHTML,
+                paymentStatus: cells[5].innerHTML
+            };
+            localStorage.setItem('userData', JSON.stringify(storedData));
+        
+            // Remove the selected class
+            row.classList.remove("selected");
+        
+            // Close the edit modal
+            closeModal();
+        }
+        
+        function deleteData(button) {
+            let row = button.parentNode.parentNode;
+            let rowIndex = row.rowIndex - 1; // Adjust for header row
+            let storedData = JSON.parse(localStorage.getItem('userData')) || [];
+            storedData.splice(rowIndex, 1); // Remove the corresponding data row
+            localStorage.setItem('userData', JSON.stringify(storedData));
+        
+            // Remove the row from the table
+            row.parentNode.removeChild(row);
+        }
+        
+
+        function clearInputs() { 
+            document.getElementById("projectIdInput").value = ""; 
+            document.getElementById("customerIdInput").value = ""; 
+            document.getElementById("poNumberInput").value = ""; 
+            document.getElementById("projectTitleInput").value = ""; 
+            document.getElementById("invoiceSubmittedInput").value = "Yes"; 
+            document.getElementById("paymentStatusInput").value = "Received"; 
+        } 
+    </script> 
+</body> 
+
+</html>

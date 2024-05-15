@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Tracker</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+ 
+      <a href="https://www.galaxiets.com" class="side-white_logo account tooltip-element" data-tooltip="0">
+        <img src="white_logo.png" alt="">
+      </a>
+ 
+        <div class="side-whitelogo tooltip-element" data-tooltip="1">
+          <div class="admin-profile hide">
+            <a href="https://www.galaxiets.com">
+              <img src="whitelogo.png" alt="">
+            </a>
+          </div>
+        </div>        
+    </div>
+  <br>
+  
+    <div class="sidebar-links">
+      <ul>
+        <div class="active-tab"></div>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="dashboard.html" id="clickProfile" class="active" data-active="0">
+            <div class="icon">
+              <i class='bx bx-tachometer'></i>
+              <i class='bx bxs-tachometer'></i>
+            </div>
+            <span class="link hide">Dashboard</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="companydata.html" id="clickProfile" class="active" data-active="1">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bx-notepad'></i>
+            </div>
+            <span class="link hide">Company Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="customerdata.html" id="clickProfile" class="active" data-active="2">
+            <div class="icon">
+              <i class='bx bx-message-square-detail'></i>
+              <i class='bx bxs-message-square-detail'></i>
+            </div>
+            <span class="link hide">Customer Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="3">
+          <a href="projectdata.html" id="clickProfile" class="active" data-active="0">
+            <div class="icon">
+              <i class='bx bx-bar-chart-square'></i>
+              <i class='bx bxs-bar-chart-square'></i>
+            </div>
+            <span class="link hide">Project Data</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">Dashboard</span>
+          <span>Company Data</span>
+          <span>Customer Data</span>
+          <span>Project Data</span>
+        </div>
+      </ul>
+
+      <h4 class="hide">Generator</h4>
+
+      <ul>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="quotation.html" id="clickProfile" class="active" data-active="4">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bxs-notepad'></i>
+            </div>
+            <span class="link hide">Quotation Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="po.html" id="clickProfile" class="active" data-active="5">
+            <div class="icon">
+              <i class='bx bxs-folder'></i>
+              <i class='bx bxs-folder'></i>
+            </div>
+            <span class="link hide">Po Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="invoice.html" id="clickProfile" class="active" data-active="6">
+            <div class="icon">
+              <i class='bx bxs-receipt' ></i>
+              <i class='bx bxs-receipt' ></i>
+            </div>
+            <span class="link hide">Invoice Generator</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">quotation Generator</span>
+          <span>Po Generator</span>
+          <span>Invoice Generator</span>
+        </div>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <i class='bx bx-user'></i>
+      </a>
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="adminprofile.jpg" alt="">
+          <div class="admin-info">
+            
+            <h5>Admin</h5>
+          </div>
+        </div>
+        <a href="signin.html" class="log-out">
+          <i class='bx bx-log-out'></i>
+        </a>
+      </div>
+      <div class="tooltip">
+        <span class="show"></span>
+        <span>Logout</span>
+      </div>
+    </div>
+  </nav>
+
+
+  
+    <main>
+        <div class="form-container">
+          <h1>Closure</h1>
+          <form action="/closureForm" method="POST">
+            <div class="input-box">
+              <label>Project ID</label>
+              <input type="text" name="ProjectID" id="projectId" placeholder="Enter ProjectID" required />
+          </div>
+          <br>
+            <div class="input-box">
+                <strong>Comments</strong>
+                
+                <textarea id="comments" name="comments" placeholder="Enter Comments" rows="8" required></textarea>
+              </div> 
+              <br>
+        <div>
+          <div>
+            <button class="button submit-button" style="vertical-align:middle" onclick="redirectToTracker()">Back</button>
+            <!-- <button class="button submit-button" style="vertical-align:middle" onclick="window.location.href='dashboard.html'">Next Page</button>  -->
+        <!-- </div> -->
+           
+            <button class="button submit-button" style="vertical-align:middle" onclick="redirectToDashboard()"><span>Closed</span></button>
+        </div>
+              </form>
+              </div>
+            </div>
+            </section>
+    <p class="copyright">
+      &copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Retrieve project ID from localStorage
+      var projectIDs = localStorage.getItem('projectIDs');
+      
+      // Set the value of projectIdInput field
+      if (projectIDs) {
+          document.getElementById('projectId').value = projectIDs;
+      }
+    });
+  </script>
+</body>
+
+</html>

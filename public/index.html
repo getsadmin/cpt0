@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Tracker - Sign Up</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <main>
+    <a href="https://www.galaxiets.com" class="brand">
+      <img src="favicon.png" height="60" width="120">
+    </a>
+    <br>
+    <div class="signup-form">
+      <h1>Sign Up</h1>
+      <form action="/sign_up" method="POST">
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+        <input type="email" id="email" name="email" placeholder="Email Address" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <button type="submit" id="submit">Register</button>
+      </form>
+
+      <div class="or-divider">
+        <!-- Add any additional content as needed -->
+      </div>
+
+      <p>Already registered? <a href="signin.html">Sign in</a></p>
+    </div>
+
+    <div id="registrationMessage" style="display: none;">
+      <p>Registration successful!</p>
+    </div>
+    <br>
+<br>
+    <p class="copyright">
+      &copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+    </p>
+  </main>
+<script> 
+</script>
+  
+</body>
+</html>

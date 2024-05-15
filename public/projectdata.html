@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Tracker</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+ 
+      <a href="https://www.galaxiets.com" class="side-white_logo account tooltip-element" data-tooltip="0">
+        <img src="white_logo.png" alt="">
+      </a>
+ 
+        <div class="side-whitelogo tooltip-element" data-tooltip="1">
+          <div class="admin-profile hide">
+            <a href="https://www.galaxiets.com">
+              <img src="whitelogo.png" alt="">
+            </a>
+          </div>
+        </div>        
+    </div>
+      <br>
+  
+    <div class="sidebar-links">
+      <ul>
+        <div class="active-tab"></div>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="dashboard.html"  data-active="0">
+            <div class="icon">
+              <i class='bx bx-tachometer'></i>
+              <i class='bx bxs-tachometer'></i>
+            </div>
+            <span class="link hide">Dashboard</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="companydata.html"  data-active="1">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bx-notepad'></i>
+            </div>
+            <span class="link hide">Company Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="customerdata.html"  data-active="2">
+            <div class="icon">
+              <i class='bx bx-message-square-detail'></i>
+              <i class='bx bxs-message-square-detail'></i>
+            </div>
+            <span class="link hide">Customer Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="3">
+          <a href="projectdata.html" id="clickProfile" class="active" data-active="0">
+            <div class="icon">
+              <i class='bx bx-bar-chart-square'></i>
+              <i class='bx bxs-bar-chart-square'></i>
+            </div>
+            <span class="link hide">Project Data</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">Dashboard</span>
+          <span>Company Data</span>
+          <span>Customer Data</span>
+          <span>Project Data</span>
+        </div>
+      </ul>
+
+      <h4 class="hide">Generator</h4>
+
+      <ul>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="quotation.html"  data-active="4">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bxs-notepad'></i>
+            </div>
+            <span class="link hide">Quotation Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="po.html"  data-active="5">
+            <div class="icon">
+              <i class='bx bxs-folder'></i>
+              <i class='bx bxs-folder'></i>
+            </div>
+            <span class="link hide">Po Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="invoice.html"  data-active="6">
+            <div class="icon">
+              <i class='bx bxs-receipt' ></i>
+              <i class='bx bxs-receipt' ></i>
+            </div>
+            <span class="link hide">Invoice Generator</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">quotation Generator</span>
+          <span>Po Generator</span>
+          <span>Invoice Generator</span>
+        </div>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <i class='bx bx-user'></i>
+      </a>
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="adminprofile.jpg" alt="">
+          <div class="admin-info">
+        
+            <h5>Admin</h5>
+          </div>
+        </div>
+        <a href="close.html" class="log-out">
+          <i class='bx bx-log-out'></i>
+        </a>
+      </div>
+      <div class="tooltip">
+        <span class="show">Tejesh</span>
+        <span>Logout</span>
+      </div>
+    </div>
+  </nav>
+
+
+  <main>
+    <div class="form-container">
+      <h1>Project Details</h1>
+      <form id="projectDataForm" action="/projectData" method="POST" class="form" onsubmit="updateIDsFromProjectForm()"> <!-- Update action attribute -->
+        <div class="container1">
+          <div class="column">
+            <div class="input-box">
+              <label for="title">Title</label>
+              <input type="text" name="title" id="title" placeholder="Enter Title" required />
+            </div>
+            <div class="input-box">
+              <label for="quoteRef">Quote ref</label>
+              <input type="text" name="quoteRef" id="quoteRef" placeholder="Enter Quote ref" required />
+            </div>
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label for="projectID">Project ID</label>
+              <input type="text" name="projectID" id="projectID" placeholder="Enter ProjectID" required />
+            </div>
+            <div class="input-box">
+              <label for="shortTitle">Short Title</label>
+              <input type="text" name="shortTitle" id="shortTitle" placeholder="Enter Short Title" required />
+            </div>
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label for="shortCustomerName">Short Customer Name</label>
+              <input type="text" name="shortCustomerName" id="shortCustomerName" placeholder="Enter short name" required />
+            </div>
+            <div class="input-box">
+              <label for="CustomerID">Customer ID</label>
+              <input type="text" name="CustomerID" id="CustomerID" placeholder="Enter CustomerId" required />
+            </div>
+          </div>
+        </div>
+        <br>
+        <div>
+          <button class="button back-button" style="vertical-align:middle" onclick="goBack()"><span>Back</span></button>
+          <button class="button delete-button" style="vertical-align:middle"><span>Delete</span></button>
+        
+          <button class="button save-button" style="vertical-align:middle"><span>Save</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+  </section>
+<p class="copyright">
+  &copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+</p>
+</main>
+
+<script src="script.js"></script>
+
+
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get the project ID from the input field
+    var CustomerIDs = document.getElementById('CustomerID').value;
+    
+    // Store the project ID in localStorage
+    localStorage.setItem('CustomerIDs', CustomerIDs);
+      });
+
+  document.addEventListener("DOMContentLoaded", function() {
+// Get the project ID from the input field
+var projectIDs = document.getElementById('projectID').value;
+
+// Store the project ID in localStorage
+localStorage.setItem('projectIDs', projectIDs);
+
+// Get the project ID from the input field
+var titleone = document.getElementById('title').value;
+
+// Store the project ID in localStorage
+localStorage.setItem('titleone', titleone);
+  });
+</script>
+
+
+
+</body>
+
+</html>

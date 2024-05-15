@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Tracker</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+ 
+      <a href="https://www.galaxiets.com" class="side-white_logo account tooltip-element" data-tooltip="0">
+        <img src="white_logo.png" alt="">
+      </a>
+ 
+        <div class="side-whitelogo tooltip-element" data-tooltip="1">
+          <div class="admin-profile hide">
+            <a href="https://www.galaxiets.com">
+              <img src="whitelogo.png" alt="">
+            </a>
+          </div>
+        </div>        
+    </div>
+  <br>
+  
+    <div class="sidebar-links">
+      <ul>
+        <div class="active-tab"></div>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="dashboard.html"  data-active="0">
+            <div class="icon">
+              <i class='bx bx-tachometer'></i>
+              <i class='bx bxs-tachometer'></i>
+            </div>
+            <span class="link hide">Dashboard</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="companydata.html"  data-active="1">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bx-notepad'></i>
+            </div>
+            <span class="link hide">Company Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="customerdata.html"  data-active="2">
+            <div class="icon">
+              <i class='bx bx-message-square-detail'></i>
+              <i class='bx bxs-message-square-detail'></i>
+            </div>
+            <span class="link hide">Customer Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="3">
+          <a href="projectdata.html"  data-active="0">
+            <div class="icon">
+              <i class='bx bx-bar-chart-square'></i>
+              <i class='bx bxs-bar-chart-square'></i>
+            </div>
+            <span class="link hide">Project Data</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">Dashboard</span>
+          <span>Company Data</span>
+          <span>Customer Data</span>
+          <span>Project Data</span>
+        </div>
+      </ul>
+
+      <h4 class="hide">Generator</h4>
+
+      <ul>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="quotation.html"  data-active="4">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bxs-notepad'></i>
+            </div>
+            <span class="link hide">Quotation Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="po.html"  data-active="5">
+            <div class="icon">
+              <i class='bx bxs-folder'></i>
+              <i class='bx bxs-folder'></i>
+            </div>
+            <span class="link hide">Po Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="invoice.html" id="clickProfile" class="active" data-active="6">
+            <div class="icon">
+              <i class='bx bxs-receipt' ></i>
+              <i class='bx bxs-receipt' ></i>
+            </div>
+            <span class="link hide">Invoice Generator</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">quotation Generator</span>
+          <span>Po Generator</span>
+          <span>Invoice Generator</span>
+        </div>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <i class='bx bx-user'></i>
+      </a>
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="adminprofile.jpg" alt="">
+          <div class="admin-info">
+          
+            <h5>Admin</h5>
+          </div>
+        </div>
+        <a href="close.html" class="log-out">
+          <i class='bx bx-log-out'></i>
+        </a>
+      </div>
+      <div class="tooltip">
+        <span class="show">Tejesh</span>
+        <span>Logout</span>
+      </div>
+    </div>
+  </nav>
+
+
+  
+    
+  <main>
+    <div class="form-container">
+      <h1>Invoice Details</h1>
+      <form action="/submit/Invoice" method="POST" id="invoiceForm" class="form">
+          <div class="input-box">
+              <label for="billto">Bill To</label>
+              <textarea id="billto" name="billto" placeholder="Enter customer details" rows="2" required></textarea>
+            </div>        
+            <div class="container1">
+        <div class="input-box">
+          <label>Customer ID</label>
+          <input type="text" name="customerID" id="customerID"  placeholder="Enter Customer ID" required />
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Date</label>
+            <input type="Date" name="date" required />
+          </div>
+          <div class="input-box">
+              <label>Terms</label>
+              <input type="text" name="terms" placeholder="Enter no. of days" required />
+            </div>
+            <div class="input-box">
+              <label>Invoice Number</label>
+              <input type="text" name="invoiceNumber" placeholder="Enter invoice number" required />
+            </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>PO No.</label>
+            <input type="text" id="poinput" name="poNo" placeholder="Enter po number" required />
+          </div>
+          <div class="input-box">
+              <label>PO Date</label>
+              <input type="date" name="poDate" placeholder="Enter po date" required />
+            </div>
+            <div class="input-box">
+              <label>Quote ref</label>
+              <input type="text" name="quoteRef" placeholder="Enter quote ref" required />
+            </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Project ID  </label>
+            <input type="text" name="projectID" id="projectID" placeholder="Enter project Id" required />
+          </div>
+            <div class="input-box">
+              <label>HSN Code</label>
+              <input type="text" name="hsnCode" placeholder="Enter HSN code" required />
+            </div>
+          <div class="input-box">
+            <label>Working Date</label>
+            <input type="text" name="workingDate" placeholder="Enter working date" required />
+          </div>
+          </div>
+        
+        
+<br>
+      <div class="container2">
+      <h3>Invoice Items</h3>
+      <br>
+        <div id="itemsContainer">
+          <div class="itemRow">
+            <table class="grey-table">
+              <thead>
+                <tr>
+            <th >Item Description</th>
+            <th><select class="quantityType" required>
+              <option value="workingTime">Working time in hrs</option>
+              <option value="totalUnits">Total number of units</option>
+          </select></th>
+            <th><select class="priceType" required>
+              <option value="pricePerHour">Price Per Hour</option>
+              <option value="unitPrice">Unit Price</option>
+          </select></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td><input type="text" class="itemDescription" placeholder="Enter Description" required></td>
+            <td><input type="number" class="workingTime" placeholder="Enter Value" required></td>
+            <td><input type="number" class="Priceperhour" placeholder="Enter Value" required></td>
+            <td><button class="deleteItem">❌</button></td> <!-- Delete button -->
+          </tr>
+          </thead>
+          </table>
+          </div>
+        </div>
+        </div>
+        <br>
+        </div>
+        <div class="button-container"  style="text-align: center;">
+          <a href="javascript:history.back()" button type="button" class="largeButton3" style="height: 25px; font-size: 0.9rem;">Back</a>
+        <button type="button" class="largeButton" style="height: 25px; font-size: 0.9rem;" id="addItem">Add Item</button>
+        <button type="button" class="largeButton2" style="height: 25px; font-size: 0.9rem;" id="generateInvoice">Generate Invoice</button>
+        <button type="submit" class="largeButton1" style="height: 25px; font-size: 0.9rem;">Save</button>
+      
+</div> 
+      </form>
+    </div>
+  </div>
+   
+        
+  <div id="invoicePreview" style="display: none;">
+    <h3>Invoice Preview</h3>
+    <div id="invoiceContent"></div>
+    <button type="button" id="downloadInvoice" disabled>Download Invoice</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+ 
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Retrieve po no from localStorage
+      var PO = localStorage.getItem('PO');
+      
+      // Set the value of poinput field
+      if (PO) {
+          document.getElementById('poinput').value = PO;
+      }
+
+      var CustomerIDs = localStorage.getItem('CustomerIDs');
+    
+      // Set the value of projectIdInput field
+      if (CustomerIDs) {
+          document.getElementById('customerID').value = CustomerIDs;
+      }
+  
+      var projectIDs = localStorage.getItem('projectIDs');
+      
+      // Set the value of projectIdInput field
+      if (projectIDs) {
+          document.getElementById('projectID').value = projectIDs;
+      }
+
+
+  });
+
+  
+    document.addEventListener('DOMContentLoaded', function() {
+  
+  let itemCount = 1;
+  let version = 1;
+  document.getElementById('addItem').addEventListener('click', function() {
+    addItemRow();
+  });
+  document.querySelectorAll('.deleteItem').forEach(button => {
+  button.addEventListener('click', function() {
+    this.closest('tr').remove(); // Remove the parent row of the clicked delete button
+  });
+});
+
+  document.getElementById('generateInvoice').addEventListener('click', function() {
+    generateInvoice();
+  });
+
+  
+    function addItemRow() {
+      const itemsContainer = document.getElementById('itemsContainer');
+
+      const itemRow = document.createElement('tr');
+      
+      const itemDescriptionCell = document.createElement('td');
+      const itemDescriptionInput = document.createElement('input');
+      itemDescriptionInput.type = 'text';
+      itemDescriptionInput.classList.add('itemDescription');
+      itemDescriptionInput.placeholder = 'Enter Description';
+      itemDescriptionInput.required = true;
+      itemDescriptionCell.appendChild(itemDescriptionInput);
+      
+      const quantityTypeCell = document.createElement('td');
+      const quantityTypeSelect = document.createElement('select');
+      quantityTypeSelect.classList.add('quantityType');
+      quantityTypeSelect.required = true;
+      const workingTimeOption = document.createElement('option');
+      workingTimeOption.value = 'workingTime';
+      workingTimeOption.textContent = 'Working time in hrs';
+      const totalUnitsOption = document.createElement('option');
+      totalUnitsOption.value = 'totalUnits';
+      totalUnitsOption.textContent = 'Total number of units';
+      quantityTypeSelect.appendChild(workingTimeOption);
+      quantityTypeSelect.appendChild(totalUnitsOption);
+      quantityTypeCell.appendChild(quantityTypeSelect);
+
+      const priceTypeCell = document.createElement('td');
+      const priceTypeSelect = document.createElement('select');
+      priceTypeSelect.classList.add('priceType');
+      priceTypeSelect.required = true;
+      const pricePerHourOption = document.createElement('option');
+      pricePerHourOption.value = 'pricePerHour';
+      pricePerHourOption.textContent = 'Price Per Hour';
+      const unitPriceOption = document.createElement('option');
+      unitPriceOption.value = 'unitPrice';
+      unitPriceOption.textContent = 'Unit Price';
+      priceTypeSelect.appendChild(pricePerHourOption);
+      priceTypeSelect.appendChild(unitPriceOption);
+      priceTypeCell.appendChild(priceTypeSelect);
+      
+      const workingTimeCell = document.createElement('td');
+      const workingTimeInput = document.createElement('input');
+      workingTimeInput.type = 'number';
+      workingTimeInput.classList.add('workingTime');
+      workingTimeInput.placeholder = 'Enter Value';
+      workingTimeInput.required = true;
+      workingTimeCell.appendChild(workingTimeInput);
+      
+      const PriceperhourCell = document.createElement('td');
+      const PriceperhourInput = document.createElement('input');
+      PriceperhourInput.type = 'number';
+      PriceperhourInput.classList.add('Priceperhour');
+      PriceperhourInput.placeholder = 'Enter Value';
+      PriceperhourInput.required = true;
+      PriceperhourCell.appendChild(PriceperhourInput);
+
+      const deleteCell = document.createElement('td');
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '❌';
+    deleteButton.classList.add('deleteItem');
+    deleteButton.addEventListener('click', function() {
+      itemRow.remove(); // Remove the entire row when delete button is clicked
+    });
+    deleteCell.appendChild(deleteButton);
+      
+      itemRow.appendChild(itemDescriptionCell);
+      itemRow.appendChild(quantityTypeCell);
+      itemRow.appendChild(priceTypeCell);
+      itemRow.appendChild(workingTimeCell);
+      itemRow.appendChild(PriceperhourCell);
+      itemRow.appendChild(deleteCell);
+      
+      itemsContainer.appendChild(itemRow);
+
+      itemCount++;
+  }
+  
+
+      function generateInvoice() {
+          const billto = document.getElementById('billto').value;
+const customerId = document.querySelector('input[placeholder="Enter Customer ID"]').value;
+
+const terms = document.querySelector('input[placeholder="Enter no. of days"]').value;
+const invoicenumber = document.querySelector('input[placeholder="Enter invoice number"]').value;
+const date = document.querySelector('input[type="date"]').value;
+const ponumber = document.querySelector('input[placeholder="Enter po number"]').value;
+const podate = document.querySelector('input[type="date"]').value;
+const quoteref = document.querySelector('input[placeholder="Enter quote ref"]').value;
+const projectid = document.querySelector('input[placeholder="Enter project Id"]').value;
+const hsn = document.querySelector('input[placeholder="Enter HSN code"]').value;
+const workingdate = document.querySelector('input[placeholder="Enter working date"]').value;
+
+
+        const itemDescriptions = document.querySelectorAll('.itemDescription');
+        const itemQuantities = document.querySelectorAll('.workingTime');
+        const Priceperhours = document.querySelectorAll('.Priceperhour');
+        
+
+        let invoiceContent = '';
+
+
+        invoiceContent += `
+        
+        <h3 style="color: red;" class="calibri-font flex-container">
+      <span class="logo" style="margin-bottom: 100px;"><img src="new_logo.png" height="55" width="55"></span>Galaxi Engineering Technology Services Private Limited
+      <div class="right-column1">
+        <p class="tax">TAX INVOICE</p>
+  </h3>
+  </div>
+  <div class="invoice-container2">
+<div class="left-column1">
+  <p class="small">No. 812 Ammachettipudur,Pasur, Coimbatore,<br>Tamil Nadu,India-641653<br>+91-9789779925<br>info@galaxiets.com<br>Galaxi GST NO: 33AAJCG9456A1ZO<br>State Code:33<br>ARN/LUT Number: AD331122044191T<br>(From: 29-11-2022 to 28-11-2023)</p>
+  </div>
+  <div class="right-column">
+    <br>
+    
+    <p class="supply">Supply Meant for Export/Supply to <br>SEZ Unit  OR SEZ Developer for <br> authorised operations under bond  <br>or letter of  undertaking without <br>payment of intergrated 
+Tax</p>
+    <br>
+    <table>
+      <tr>
+          <th><strong>Invoice No.</strong></th>
+          <th><strong>Date</strong></th>
+      </tr>
+      <tr>
+          <td>${invoicenumber}</td>
+          <td>${date}</td>
+      </tr>
+      <tr>
+          <th><strong>Customer ID</strong></th>
+          <th><strong>Terms</strong></th>
+      </tr>
+      <tr>
+          <td>${customerId}</td>
+          <td>${terms}</td>
+      </tr>
+      </table>
+      
+  </div>
+</div>
+    
+`;
+
+        // Invoice header
+        invoiceContent += `
+        <div class="invoice-container1">
+        <div class="left-content">
+<p class="billto">Bill To:</p>
+<p>${billto.replace(/\n/g, '<br>')}</p>
+</div>
+<div class="right-content1">
+  <p class="ponumber" style="margin-bottom: 10px;">PO No: ${ponumber}</p>
+<p class="podate" style="margin-bottom: 10px;">PO Date: ${podate}</p>
+<p class="quoteref" style="margin-bottom: 10px;">Quote Ref: ${quoteref}</p>
+<p class="projectid" style="margin-bottom: 10px;">Project ID: ${projectid}</p>
+<p class="hsn" style="margin-bottom: 10px;">HSN Code: ${hsn}</p>
+<p class="working-date" style="margin-bottom: 10px;">Working Date: ${workingdate}</p>
+</div>
+</div>
+        `;
+
+        // Invoice items
+        invoiceContent += `
+        <br>
+          <h3>Invoice Items</h3>
+          <br>
+          <table>
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Description</th>
+                <th>Working time in hrs</th>
+                <th>Price Per Hour</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
+
+        let totalAmount = 0;
+        let serialNumber = 1;
+
+        for (let i = 0; i < itemDescriptions.length; i++) {
+          const description = itemDescriptions[i].value;
+          const workingTime = parseFloat(itemQuantities[i].value);
+          const price = parseFloat(Priceperhours[i].value);
+          
+
+          const total = workingTime * price;
+          const itemTotal = total;
+          const formattedItemTotal = 'Rs. ' + itemTotal.toFixed(2);
+
+          invoiceContent += `
+            <tr>
+              <td>${serialNumber}</td>
+              <td>${description}</td>
+              <td>${workingTime}</td>
+              <td>${price}</td>
+              <td>${formattedItemTotal}</td>
+            </tr>
+          `;
+
+          totalAmount += itemTotal;
+          serialNumber++;
+        }
+
+        invoiceContent += `
+            </tbody>
+          </table>
+        `;
+
+        // Invoice total
+        invoiceContent += `
+        <br>
+          <h3 class="right">Total Amount: Rs. ${totalAmount.toFixed(2)}</h3>
+        `;
+
+        invoiceContent += `
+        <p class="small">Our Bank details:<br>ICICI Bank.,Pethanaickanpalayam Branch<br>A/C No.299105001096<br>IFSC code: ICIC0002991<br>RCM:No<br>SWIFT Code:ICICINBBXXX</p>
+<br>
+<br>
+    `;
+    invoiceContent += `
+  <p class="sign">Dineshkumar.R <br> Authorized Signatory
+</p>
+<br>
+<br>
+
+<div style="text-align: center;">
+    <p><strong>https://www.galaxiets.com <br>Thank you for business with us</strong></p>
+</div>
+        
+  `;
+        const invoicePreview = document.getElementById('invoicePreview');
+    const invoicePreviewContent = document.getElementById('invoiceContent');
+    const downloadInvoiceButton = document.getElementById('downloadInvoice');
+
+    invoicePreviewContent.innerHTML = invoiceContent;
+    invoicePreview.style.display = 'block';
+    
+    downloadInvoiceButton.disabled = false;
+        downloadInvoiceButton.addEventListener('click', function() {
+          downloadInvoice();
+        });
+
+         function downloadInvoice() {
+      const invoiceElement = document.getElementById('invoiceContent');
+      const currentDate = new Date();
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    const currentMonth = monthNames[currentDate.getMonth()];
+    const currentYear = currentDate.getFullYear();
+    const pdfFileName = `${currentMonth}_${version}.pdf`;
+    version++;
+      
+      html2pdf()
+      .from(invoiceElement)
+      .save(pdfFileName);
+  }
+      }
+    });
+  </script>
+  <p class="copyright">
+    &copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+    </p>
+  
+  
+  <script src="script.js"></script>
+
+  <script src="invoiceScript.js"></script>
+  
+
+
+  </main>
+  </body>
+  
+
+</html>

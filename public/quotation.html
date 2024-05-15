@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Tracker</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+ 
+      <a href="https://www.galaxiets.com" class="side-white_logo account tooltip-element" data-tooltip="0">
+        <img src="white_logo.png" alt="">
+      </a>
+ 
+        <div class="side-whitelogo tooltip-element" data-tooltip="1">
+          <div class="admin-profile hide">
+            <a href="https://www.galaxiets.com">
+              <img src="whitelogo.png" alt="">
+            </a>
+          </div>
+        </div>        
+    </div>
+      <br>
+    <div class="sidebar-links">
+      <ul>
+        <div class="active-tab"></div>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="dashboard.html"  data-active="0">
+            <div class="icon">
+              <i class='bx bx-tachometer'></i>
+              <i class='bx bxs-tachometer'></i>
+            </div>
+            <span class="link hide">Dashboard</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="companydata.html"  data-active="1">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bx-notepad'></i>
+            </div>
+            <span class="link hide">Company Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="customerdata.html"  data-active="2">
+            <div class="icon">
+              <i class='bx bx-message-square-detail'></i>
+              <i class='bx bxs-message-square-detail'></i>
+            </div>
+            <span class="link hide">Customer Data</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="3">
+          <a href="projectdata.html"  data-active="0">
+            <div class="icon">
+              <i class='bx bx-bar-chart-square'></i>
+              <i class='bx bxs-bar-chart-square'></i>
+            </div>
+            <span class="link hide">Project Data</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">Dashboard</span>
+          <span>Company Data</span>
+          <span>Customer Data</span>
+          <span>Project Data</span>
+        </div>
+      </ul>
+
+      <h4 class="hide">Generator</h4>
+
+      <ul>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="quotation.html" id="clickProfile" class="active" data-active="4">
+            <div class="icon">
+              <i class='bx bx-notepad'></i>
+              <i class='bx bxs-notepad'></i>
+            </div>
+            <span class="link hide">Quotation Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="po.html"  data-active="5">
+            <div class="icon">
+              <i class='bx bxs-folder'></i>
+              <i class='bx bxs-folder'></i>
+            </div>
+            <span class="link hide">Po Generator</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2">
+          <a href="invoice.html"  data-active="6">
+            <div class="icon">
+              <i class='bx bxs-receipt' ></i>
+              <i class='bx bxs-receipt' ></i>
+            </div>
+            <span class="link hide">Invoice Generator</span>
+          </a>
+        </li>
+        <div class="tooltip">
+          <span class="show">quotation Generator</span>
+          <span>Po Generator</span>
+          <span>Invoice Generator</span>
+        </div>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <i class='bx bx-user'></i>
+      </a>
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="adminprofile.jpg" alt="">
+          <div class="admin-info">
+          
+            <h5>Admin</h5>
+          </div>
+        </div>
+        <a href="close.html" class="log-out">
+          <i class='bx bx-log-out'></i>
+        </a>
+      </div>
+      <div class="tooltip">
+        <span class="show">Tejesh</span>
+        <span>Logout</span>
+      </div>
+    </div>
+  </nav>
+
+
+    <main>
+    <div class="form-container">
+      <h1>Quote Details</h1>
+      <form action="/api/quotation" method="POST" id="QuotationForm" class="form">
+        <div class="container1"></div>
+        <div class="column">
+          <div class="input-box">
+            <label>To</label>
+            <input type="text" name="to" placeholder="Enter details" required />
+          </div>
+          <div class="input-box">
+              <label>Customer ID</label>
+              <input type="text" id="customerid" name="customerID" placeholder="Enter customer ID" required />
+
+            </div>
+            <div class="input-box">
+              <label>Project ID</label>
+              <input type="text" name="projectID" placeholder="Enter project ID" required />
+            </div>          
+          </div>
+      <div class="column">
+        <div class="input-box">
+          <label>Attn</label>
+          <input type="text" name="attn" placeholder="Enter Customer Name" required />
+        </div>
+        <div class="input-box">
+            <label>Cust ref</label>
+            <input type="text" name="custRef" placeholder="Enter Item" required />
+          </div>
+          <div class="input-box">
+            <label>Address</label>
+            <input type="text" name="address" placeholder="Enter Customer Address" required />
+          </div>
+      </div>
+      <div class="column">
+        <div class="input-box">
+          <label>Delivery Schedule</label>
+          <input type="number" name="deliverySchedule" placeholder="Enter no days" required />
+        </div>
+        <div class="input-box">
+            <label>Payment Terms</label>
+            <input type="text" name="paymentTerms" placeholder="Enter Terms" required />
+          </div>
+          <div class="input-box">
+            <label>Quote Ref</label>
+            <input type="text" name="quoteRef" placeholder="Enter quote ref" required />
+          </div>
+      </div>
+      <div class="column">
+        <div class="input-box">
+          <label>date </label>
+          <input type="date" name="date" required />
+        </div>
+          <div class="input-box">
+            <label>Price Validity</label>
+            <input type="text" name="priceValidity" placeholder="Enter no days" required />
+          </div>
+        <div class="input-box">
+          <label>Expiry Date</label>
+          <input type="Date" name="expiryDate" required/>
+          </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Offered cost </label>
+            <input type="text" id="offeredCost" name="offeredCost" placeholder="Enter cost" oninput="calculateTotal()" />
+          </div>
+          <div class="input-box">
+            <label>IGST</label>
+            <input type="text" id="IGST" name="IGST" placeholder="Enter value" required oninput="calculateTotal()" />
+          </div>
+          <div class="input-box">
+            <label>Total Value</label>
+            <input type="text" id="totalValue" name="totalValue" placeholder="Total value" readonly />
+          </div>
+        </div>
+        
+
+      <br>
+   
+    <div class="container2">
+    <h3>Items</h3><br>
+      <div id="itemsContainer">
+        <div class="itemRow">
+          <table class="grey-table">
+            <thead>
+              <tr>
+          <th >Item Description</th>
+          <th><select class="quantityType" required>
+            <option value="workingTime">Working time in hrs</option>
+            <option value="totalUnits">Total number of units</option>
+        </select></th>
+          <th><select class="priceType" required>
+            <option value="pricePerHour">Price Per Hour</option>
+            <option value="unitPrice">Unit Price</option>
+        </select></th>
+        <th></th>
+        </tr>
+        <tr>
+          <td><input type="text" class="itemDescription" placeholder="Enter Description" required></td>
+          <td><input type="number" class="workingTime" placeholder="Enter Value" required></td>
+          <td><input type="number" class="Priceperhour" placeholder="Enter Value" required></td>
+          <td><button class="deleteItem">❌</button></td> <!-- Delete button -->
+        </tr>
+        </thead>
+        </table>
+        </div>
+      </div>
+      </div>
+      <br>
+      <div class="button-container" style="text-align: center;">
+      <a href="javascript:history.back()" button type="button" class="largeButton3" style="height: 25px; font-size: 0.9rem;">Back</a>
+      <button type="button" class="largeButton" style="height: 25px; font-size: 0.9rem;" id="addItem">Add Item</button>
+      <button type="button" class="largeButton2" style="height: 25px; font-size: 0.9rem;" id="generateQuotation">Generate Quotation</button>
+      <button type="submit" class="largeButton1" style="height: 25px; font-size: 0.9rem;">Save</button>
+     
+</div>
+    </form>
+  </div>
+</div>
+        
+<div id="QuotationPreview" style="display: none;">
+<h3>Quotation Preview</h3>
+<div id="QuotationContent"></div>
+<button type="button" id="downloadQuotation"  disabled>Download Quotation</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
+<script>
+//getting item from project data
+  document.addEventListener("DOMContentLoaded", function() {
+    // Retrieve project ID from localStorage
+    // Retrieve project ID from localStorage
+    var CustomerIDs = localStorage.getItem('CustomerIDs');
+    
+    // Set the value of projectIdInput field
+    if (CustomerIDs) {
+        document.getElementById('customerid').value = CustomerIDs;
+    }
+
+    var projectIDs = localStorage.getItem('projectIDs');
+    
+    // Set the value of projectIdInput field
+    if (projectIDs) {
+        document.getElementById('projectID').value = projectIDs;
+    }
+  });
+
+
+  
+document.addEventListener('DOMContentLoaded', function () {
+  let itemCount = 1;
+  let version = 1;
+
+  document.getElementById('addItem').addEventListener('click', function () {
+    addItemRow();
+  });
+
+document.querySelectorAll('.deleteItem').forEach(button => {
+  button.addEventListener('click', function() {
+    this.closest('tr').remove(); // Remove the parent row of the clicked delete button
+  });
+});
+
+  document.getElementById('generateQuotation').addEventListener('click', function () {
+    generateQuotation();
+  });
+
+
+
+
+  function addItemRow() {
+  const itemsContainer = document.getElementById('itemsContainer');
+
+  const itemRow = document.createElement('tr');
+  
+  const itemDescriptionCell = document.createElement('td');
+  const itemDescriptionInput = document.createElement('input');
+  itemDescriptionInput.type = 'text';
+  itemDescriptionInput.classList.add('itemDescription');
+  itemDescriptionInput.placeholder = 'Enter Description';
+  itemDescriptionInput.required = true;
+  itemDescriptionCell.appendChild(itemDescriptionInput);
+  
+  const quantityTypeCell = document.createElement('td');
+  const quantityTypeSelect = document.createElement('select');
+  quantityTypeSelect.classList.add('quantityType');
+  quantityTypeSelect.required = true;
+  const workingTimeOption = document.createElement('option');
+  workingTimeOption.value = 'workingTime';
+  workingTimeOption.textContent = 'Working time in hrs';
+  const totalUnitsOption = document.createElement('option');
+  totalUnitsOption.value = 'totalUnits';
+  totalUnitsOption.textContent = 'Total number of units';
+  quantityTypeSelect.appendChild(workingTimeOption);
+  quantityTypeSelect.appendChild(totalUnitsOption);
+  quantityTypeCell.appendChild(quantityTypeSelect);
+
+  const priceTypeCell = document.createElement('td');
+  const priceTypeSelect = document.createElement('select');
+  priceTypeSelect.classList.add('priceType');
+  priceTypeSelect.required = true;
+  const pricePerHourOption = document.createElement('option');
+  pricePerHourOption.value = 'pricePerHour';
+  pricePerHourOption.textContent = 'Price Per Hour';
+  const unitPriceOption = document.createElement('option');
+  unitPriceOption.value = 'unitPrice';
+  unitPriceOption.textContent = 'Unit Price';
+  priceTypeSelect.appendChild(pricePerHourOption);
+  priceTypeSelect.appendChild(unitPriceOption);
+  priceTypeCell.appendChild(priceTypeSelect);
+  
+  const workingTimeCell = document.createElement('td');
+  const workingTimeInput = document.createElement('input');
+  workingTimeInput.type = 'number';
+  workingTimeInput.classList.add('workingTime');
+  workingTimeInput.placeholder = 'Enter Value';
+  workingTimeInput.required = true;
+  workingTimeCell.appendChild(workingTimeInput);
+  
+  const PriceperhourCell = document.createElement('td');
+  const PriceperhourInput = document.createElement('input');
+  PriceperhourInput.type = 'number';
+  PriceperhourInput.classList.add('Priceperhour');
+  PriceperhourInput.placeholder = 'Enter Value';
+  PriceperhourInput.required = true;
+  PriceperhourCell.appendChild(PriceperhourInput);
+
+  const deleteCell = document.createElement('td');
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '❌';
+    deleteButton.classList.add('deleteItem');
+    deleteButton.addEventListener('click', function() {
+      itemRow.remove(); // Remove the entire row when delete button is clicked
+    });
+    deleteCell.appendChild(deleteButton);
+  
+  itemRow.appendChild(itemDescriptionCell);
+  itemRow.appendChild(quantityTypeCell);
+  itemRow.appendChild(priceTypeCell);
+  itemRow.appendChild(workingTimeCell);
+  itemRow.appendChild(PriceperhourCell);
+  itemRow.appendChild(deleteCell);
+
+  itemsContainer.appendChild(itemRow);
+
+  itemCount++;
+}
+
+
+function generateQuotation() {
+    // Retrieve values from input fields
+    
+    const customerid = document.getElementById('customerid').value;
+    const To = document.querySelector('input[placeholder="Enter details"]').value;
+
+    const ProjectID = document.querySelector('input[placeholder="Enter project ID"]').value;
+    const Attn = document.querySelector('input[placeholder="Enter Customer Name"]').value;
+    const Address = document.querySelector('input[placeholder="Enter Customer Address"]').value;
+    const Custref = document.querySelector('input[placeholder="Enter Item"]').value;
+    const DeliverySchedule = document.querySelector('input[placeholder="Enter no days"]').value;
+    const PaymentTerms = document.querySelector('input[placeholder="Enter Terms"]').value;
+    const quoteref = document.querySelector('input[placeholder="Enter quote ref"]').value;
+    const date = document.querySelector('input[type="date"]').value; 
+    const PriceValidity = document.querySelector('input[placeholder="Enter no days"]').value;
+    const ExpiryDate = document.querySelector('input[type="Date"]').value;
+    const Offeredcost = document.querySelector('input[placeholder="Enter cost"]').value;
+    const IGST = document.querySelector('input[placeholder="Enter Value"]').value;
+    const TotalValue = document.querySelector('input[placeholder="Total value"]').value;
+
+    // Retrieve values from item rows
+    const itemDescriptions = document.querySelectorAll('.itemDescription');
+    const itemQuantities = document.querySelectorAll('.workingTime');
+    const Priceperhours = document.querySelectorAll('.Priceperhour');
+
+    let QuotationContent = '';
+
+    QuotationContent += `
+        <h3 style="color: red;" class="calibri-font flex-container">
+          <span class="logo" style="margin-right: 10px; float: left;"><img src="new_logo.png" height="55" width="55"></span>
+<br>
+          <span class="logo-container" style="display:flex; align-items:center;">Galaxi Engineering Technology Services Private Limited</span>
+        <div class="invoice-container2">
+        <div class="right-column">
+        <br>
+        <p class="supply1">No. 812 Ammachettipudur, Pasur, <br>Coimbatore, Tamil Nadu, India, 641653 <br> +919789779925<br>info@galaxiets.com.<br>www.galaxiets.com</p><br<br>
+        </h3>
+        </div>
+        </div>
+        
+        `;
+
+    // Quotation header
+    QuotationContent += `
+        <div class="Quotation-container1">
+        <table style="width: 100%;">
+            <tr>
+              <td style="width: 50%; vertical-align: top; border: 1px solid #000; padding: 5px; text-align: left;">
+                    <p class="To" style="margin-bottom: 10px;">To: ${To}</p>
+                    <p class="Customer ID" style="margin-bottom: 10px;">customerid: ${customerid}</p>
+                    <p class="Attn" style="margin-bottom: 10px;">Attn: ${Attn}</p>
+                    <p class="cust ref" style="margin-bottom: 10px;">Cust Ref: ${Custref}</p>
+                    <p class="Address" style="margin-bottom: 10px;">Address: ${Address}</p>
+                    <p class="DeliverySchedule" style="margin-bottom: 10px;">Delivery Schedule: ${DeliverySchedule}</p>
+                    <p class="PaymentTerms" style="margin-bottom: 10px;">Payment Terms: ${PaymentTerms}</p>
+                </td>
+                <td style="width: 50%; vertical-align: top; border: 1px solid #000; padding: 5px; text-align: left;">
+                  <p class="Project ID" style="margin-bottom: 10px;">Project ID: ${ProjectID}</p>
+                    <p class="Quote Ref" style="margin-bottom: 10px;">Quote Ref: ${quoteref}</p>
+                    <p class="Price Validity" style="margin-bottom: 10px;">Price Validity: ${PriceValidity}</p>
+                    <p class="ExpiryDate" style="margin-bottom: 10px;">Expiry Date: ${ExpiryDate}</p>
+                    <p class="Offeredcost" style="margin-bottom: 10px;">Offered cost: ${Offeredcost}</p>
+                    <p class="IGST" style="margin-bottom: 10px;">IGST: ${IGST}</p>
+                    <p class="Total Value" style="margin-bottom: 10px; color: red;">Total Value: ${TotalValue}</p>
+                </td>
+            </tr>
+        </table>
+        </div>
+    `;
+
+    // Quotation items
+    QuotationContent += `
+        <br>
+        <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Description</th>
+                <th>Working time in hrs</th>
+                <th>Price Per Hour</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    let totalAmount = 0;
+    let serialNumber = 1;
+
+    for (let i = 0; i < itemDescriptions.length; i++) {
+        const description = itemDescriptions[i].value;
+        const workingTime = parseFloat(itemQuantities[i].value);
+        const price = parseFloat(Priceperhours[i].value);
+
+        const total = workingTime * price;
+        const itemTotal = total;
+        const formattedItemTotal = 'Rs. ' + itemTotal.toFixed(2);
+
+        QuotationContent += `
+            <tr>
+                <td>${serialNumber}</td>
+                <td>${description}</td>
+                <td>${workingTime}</td>
+                <td>${price}</td>
+                <td>${formattedItemTotal}</td>
+            </tr>
+        `;
+
+        totalAmount += itemTotal;
+        serialNumber++;
+    }
+
+    QuotationContent += `
+        </tbody>
+        </table>
+    `;
+
+
+    // Quotation total
+    QuotationContent += `
+        <br>
+        <h3 class="right">Total Amount: Rs. ${totalAmount.toFixed(2)}</h3>
+    `;
+
+    const QuotationPreview = document.getElementById('QuotationPreview');
+    const QuotationPreviewContent = document.getElementById('QuotationContent'); // Update this line
+    const downloadQuotationButton = document.getElementById('downloadQuotation');
+
+    QuotationPreviewContent.innerHTML = QuotationContent;
+    QuotationPreview.style.display = 'block';
+
+    downloadQuotationButton.disabled = false;
+    downloadQuotationButton.addEventListener('click', function() {
+        downloadQuotation();
+    });
+
+    function downloadQuotation() {
+        const QuotationElement = document.getElementById('QuotationContent');
+        
+        const currentDate = new Date(); // Corrected line
+        const monthNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+        const currentMonth = monthNames[currentDate.getMonth()];
+        const currentYear = currentDate.getFullYear();
+        const pdfFileName = `${currentMonth}_${version}.pdf`;
+        version++;
+
+         // Define additionalText within the function
+         const initialContent = `
+        <div style="margin-top: 20px; font-family: Arial, sans-serif; color: #333; font-size: 14px;">
+            <p>Quotation prepared by: <strong>Mr. Sundareshwaran N</strong></p><br><br><br>
+            <p>This is a quotation on the goods named, subject to the conditions noted below:Describe any conditions pertaining to these prices and any additional terms of the agreement. You may want to include contingencies that will affect the quotation.</p>
+           <br><br>
+            <p><strong>Terms & Conditions:</strong></p>
+            <ul style="list-style-type: disc; margin-left: 20px;">
+                <li>The following Terms and Conditions of Service apply to all products and services provided by Galaxi Engineering Technology Services Private Limited (hereinafter referred to as Galaxi ETS) and in the event of any dispute are governed by the laws of India.</li>
+                <li>All work is carried out by Galaxi ETS on the understanding that the client has agreed to our terms and conditions.</li>
+                <li>Copyright is retained by Galaxi ETS on all design work including words, pictures, ideas, visuals and illustrations unless specifically released in writing and after all costs have been settled.</li>
+                <li>If a choice of design is presented and one is chosen for your project, only that solution is deemed to be given by us as fulfilling the contract. All other designs remain the property of Galaxi ETS, unless specifically agreed in writing.</li>
+            </ul>
+            <br><br><br>
+            <p><strong>Project Acceptance:</strong></p>
+            <ul style="list-style-type: disc; margin-left: 20px;">
+                <li>At the time of proposal, Galaxi ETS will provide the customer with a written estimate or quotation by email. These Terms and Conditions can be read at any time on the Galaxi ETS Quote.</li>
+                <li>A copy of the written estimate or quotation is to be signed and dated by the customer to indicate acceptance and should be returned to Galaxi ETS.</li>
+                <li>Alternatively, the client may send an official purchase order in reply to the estimate or quotation which binds the client to accept our terms and conditions, or an email acknowledging acceptance of the quotation.</li>
+                <li>For the avoidance of doubt, the Galaxi ETS Terms & Conditions are what govern the job, not any conditions on the customer’s purchase</li>
+            </ul>
+           <br>
+        </div>
+    `;
+    QuotationElement.insertAdjacentHTML('beforeend', initialContent);
+
+
+   
+
+    
+// Create additional text for the second page
+const additionalTextPage2 = `
+<br><br><br><br>
+<!-- Additional HTML content for the second page -->
+<div style="page-break-before: always; font-family: Arial, sans-serif; color: #333; font-size: 14px;">
+<div class="Quotation-container1">
+        <table style="width: 100%;">
+            <tr>
+              <td style="width: 50%; vertical-align: top; border: 1px solid #000; padding: 5px; text-align: left;">
+                    <p class="To" style="margin-bottom: 10px;">To: ${To}</p>
+                    <p class="Customer ID" style="margin-bottom: 10px;">customerid: ${customerid}</p>
+                    <p class="Attn" style="margin-bottom: 10px;">Attn: ${Attn}</p>
+                    <p class="cust ref" style="margin-bottom: 10px;">Cust Ref: ${Custref}</p>
+                    <p class="Address" style="margin-bottom: 10px;">Address: ${Address}</p>
+                    <p class="DeliverySchedule" style="margin-bottom: 10px;">Delivery Schedule: ${DeliverySchedule}</p>
+                    <p class="PaymentTerms" style="margin-bottom: 10px;">Payment Terms: ${PaymentTerms}</p>
+                </td>
+                <td style="width: 50%; vertical-align: top; border: 1px solid #000; padding: 5px; text-align: left;">
+                  <p class="Project ID" style="margin-bottom: 10px;">Project ID: ${ProjectID}</p>
+                    <p class="Quote Ref" style="margin-bottom: 10px;">Quote Ref: ${quoteref}</p>
+                    <p class="Price Validity" style="margin-bottom: 10px;">Price Validity: ${PriceValidity}</p>
+                    <p class="ExpiryDate" style="margin-bottom: 10px;">Expiry Date: ${ExpiryDate}</p>
+                    <p class="Offeredcost" style="margin-bottom: 10px;">Offered cost: ${Offeredcost}</p>
+                    <p class="IGST" style="margin-bottom: 10px;">IGST: ${IGST}</p>
+                    <p class="Total Value" style="margin-bottom: 10px; color: red;">Total Value: ${TotalValue}</p>
+                </td>
+            </tr>
+        </table>
+     </div>
+    
+        <!-- Additional text for the second page -->
+            
+              <br>
+                <p><strong>Design Charges</strong></p>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                    <li>Charges for design services to be provided by Galaxi ETS will be set out in the written estimate or quotation that is provided to the customer. At the time of the customer’s signed acceptance of this estimate or quotation, indicating acceptance of the Terms & Conditions, a non-refundable payment of 50% of the quoted fee will become immediately due.</li>
+                    <li>Unless agreed otherwise with the Client, all design services require an advance payment of a minimum of fifty (50) percent of the project quotation total before the work commences or is supplied to the Client for review. The remaining fifty (50) percent of the project quotation total will be due upon completion of the work prior to upload to the server or release of materials.</li>
+                </ul>
+                <br>
+                <p><strong>Source Files</strong></p>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                  <li>	We will supply proofs and PDF files as appropriate for printing, or other graphic files as detailed in the job scope or request.</li>
+                  <li>	Charges for design work do not cover the release of our copyright design source files, including but not restricted to indd, psd, AI, png, fla or other source files or raw code; if the Client requires these files for transfer to an in-house or other designer, they will be subject to a separate quotation or ‘buy-out’ charge.</li>
+                  </ul>
+                  <br><br>
+                  <p><strong>Charges for Other Services</strong></p>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                  <li>	Charges for any additional services requested during the project that are over and above the estimated time or out of scope, will become fully payable (100% of the quoted amount) at the time of estimate or quotation acceptance.</li>
+                  </ul>
+                  <br><br>
+                  <p><strong>Payment</strong></p>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                  <li>	The customer will be provided with an Approval Form or Proof Email, and an Invoice prior to final publication. At this time the remainder of the amount due will become payable and the customer will also be required to sign and return the Approval Form or signify approval by email to Galaxi ETS</li>
+                  <li>  Any invoice queries must be submitted by email within 14 days of the invoice date.</li>
+                  <li>	Payments may be made by online transfer, credit card (Visa, Mastercard) or Debit Card.</li>
+                  <li>	Payments made by cheque must be previously agreed and may be subject to an administration charge. Cheques should not be sent in regular mail unless sent recorded delivery.</li>
+                  <li>	Publication and/or release of work done by Galaxi ETS on behalf of the client, may not take place before cleared funds have been received.</li>
+                  </ul>
+                  <br><br>
+                  <p><strong>Design Project Duration</strong></p>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                  <li>	Any indication given by Galaxi ETS of a design project’s duration is to be considered by the customer to be an estimation. Galaxi ETS
+cannot be held responsible for any project over-runs, whatever the cause. Estimated project duration should be deemed to be from the date that cleared funds are received by Galaxi ETS for the initial payment or by date confirmed in writing by Galaxi ETS.</li>
+                   </ul>
+                   <br><br>
+                   <p><strong>Cancellation</strong></p>
+                <ul style="list-style-type: disc; margin-left: 20px;">
+                  <li>	Cancellation of orders may be made initially by telephone contact, or e-mail, however, following this, Galaxi ETS will need formal
+notification in writing to the company’s postal address. The client will then be invoiced for all work completed over and above the non- refundable deposit that will have been made at the time of first ordering. The balance of monies due must be paid within 30 days. Please note: any cancellation which is not formally confirmed in writing and received by Galaxi ETS within 14 days of such instruction being issued, will be liable for the full quoted cost of the project.
+</li>
+
+</ul>
+<br> 
+<br>
+<div style="text-align: center;">
+    <p><strong>Looking forward for your business</strong></p>
+</div>
+        
+          
+        `;
+    
+  
+    QuotationElement.insertAdjacentHTML('beforeend', additionalTextPage2);
+    
+        html2pdf()
+            .from(QuotationElement)
+            .save(pdfFileName);
+    }
+}
+});
+
+fetch("/api/quotation", {
+  method: 'GET', // Use GET method to retrieve data
+  headers: {
+    'Content-Type': 'application/json', // Specify the content type as JSON
+  },
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json(); // Parse the JSON response
+})
+.then(data => {
+  // Handle the data received from the backend
+  console.log('Quotation data:', data);
+})
+.catch(error => {
+  // Handle errors
+  console.error('Error fetching quotation data:', error);
+});
+
+</script>
+ 
+<p class="copyright">
+  &copy; 2024 - <span>GALAXIETS</span> All Rights Reserved.
+  </p>
+
+
+<script src="script.js"></script>
+<script src="quoteScript.js"></script>
+
+
+</main>
+</body>
+
+</html>
